@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Meu CSS-->
+    <link rel="stylesheet" href="style.css">
+    <title>Calculador de Preços e Prazos</title>
+    <style>
+        @import "card";
+        @import "carousel";
+        @import "containers";
+        @import "grid";
+        @import "tables";
+        @import "forms";
+
+        strong {
+            color: #00416B
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section id="menu" class="navbar navbar-expand-sm">
+            <ul>
+                <li><a href="http://www.correios.com.br"><img src="img/logotipo.png" alt="logotipo dos Correios" style="max-width: 150px;"></a></li>
+            </ul>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="https://www.correios.com.br">Página Inicial</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Preços e Prazos</li>
+                </ol>
+            </nav>
+            <div class="escolha-input">
+                <h3><strong>Calculador de Preços e Prazos</strong></h3>
+            
+            <div id="busca" class="shadow bg-white max-width">
+                
+                    <nav>
+                        <div class="nav nav-tabs nav-fill mx-auto m-2" id="buscador" role="tablist">
+                            <a class="nav-item nav-link py-4 active" id="nacional-tab" data-toggle="tab" href="#nacional" role="tab" aria-controls="nacional" aria-selected="true"><strong>Nacional</strong></a>
+                            <a class="nav-item nav-link py-4" id="internacional-tab" data-toggle="tab" href="#internacional" role="tab" aria-controls="internacional" aria-selected="false"><strong>Internacional</strong></a>                            
+                        </div>
+                    </nav>
+                
+                <div class="tab-content p-3">
+                    <div id="nacional" class="tab-pane fade show active" role="tabpanel" aria-labellebdy="nacional-tab">
+                        <div class="container">
+
+                            <!--Tipo de Envio-->
+                            <div class="container" style="margin-top: 15px;" id="tipo-envio">
+                            <p><strong>Qual o tipo de envio?</strong></p>
+                                <fieldset>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="tipo-envio" id="radioencomenda">
+                                        <label class="form-check-label" for="radioencomenda">
+                                            Encomenda
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="tipo-envio" id="radiodocumento">
+                                        <label class="form-check-label" for="radiodocumento">
+                                            Documento
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <!--Endereço-->
+                            <div class="container mt-4">
+                                <p><strong>Por favor, informe o Endereço ou CEP:</strong></p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="Origem" class="form-label">Endereço de Origem*</label>
+                                        <input type="search" name="estado" class="form-control" id="estado" placeholder="Digite um endereço ou CEP" style="max-width: 600px;">
+                                        <div class="form-text px-2"><i>Não utilize nª de casa/apto/lote/prédio ou abreviação</i></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="Destino" class="form-label">Endereço de Destino*</label>
+                                        <input type="search" name="cidade" class="form-control" id="cidade" placeholder="Digite um endereço ou CEP" style="max-width: 600px;">
+                                        <div class="form-text px-2"><i>Não utilize nª de casa/apto/lote/prédio ou abreviação</i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Data, peso e formato-->
+                            <div class="container">
+                                <div class="row row-cols-auto">
+                                    <div class="col-md-3 inline mt-4">
+                                        <p><strong>Qual a data da postagem?</strong></p>
+                                        <input class="border rounded" type="date" name="data" id="data" style="padding: 6.5px">
+                                    </div>
+                                    <div class="col-md-3 inline mt-3">
+                                        <div class="my-2">
+                                            <p><strong>Qual o peso (kg) estimado?</strong></p>
+                                            <select class="form-select" aria-label="peso" style="max-width: 200px;">
+                                                <option selected>Selecione</option>
+                                                <option value="1">Até 300 gramas</option>
+                                                <option value="2">300g a 1kg</option>
+                                                <option value="3">1kg a 2kg</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <!--Formato-->
+                                    <div class="col-md-3 inline mt-3">
+                                        <div class="my-2">
+                                            <p><strong>Qual o formato do envio?</strong></p>
+                                            <select class="form-select" aria-label="Default select example" style="max-width: 200px;">
+                                                <option selected>Selecione</option>
+                                                <option value="1">Caixa</option>
+                                                <option value="2">Envelope</option>
+                                                <option value="3">Rolo/Cilindro</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Tipo de Embalagem-->
+                            <div class="container mt-4">
+                                <p><strong>Qual embalagem será utilizada?</strong></p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="embalagem" id="embalagem-correios">
+                                    <label class="form-check-label" for="embalagem-correios">Embalagem dos Correios</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="embalagem" id="embalagem-propria">
+                                    <label class="form-check-label" for="embalagem-propria">Embalagem Própria</label>
+                                </div>
+                            </div>
+
+                            <!--Embalagens dos Correios-->
+                            <div class="container mt-4" id="embalagem" style="display: none;">
+                                <p><strong>Escolha uma embalagem:</strong></p>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="card-body" style="width: 18rem;">
+                                        <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Caixa 1</h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <a href="#" class="btn btn-primary">Selecione</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" style="width: 18rem;">
+                                        <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Caixa 2</h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <a href="#" class="btn btn-primary">Selecione</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" style="width: 18rem;">
+                                        <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Caixa 3</h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <a href="#" class="btn btn-primary">Selecione</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Dimensões-->
+                            <div class="container mt-4" id="dimensoes" style="display: none;">
+                                <p><strong>Indique as dimensões:</strong></p>
+                                    <div class="row row-cols-auto">
+                                        <form class="col-sm-2 mt-2 inline" action="#">
+                                            <label for="altura">Altura</label>
+                                            <input type="text" name="estado" class="form-control" id="estado" placeholder="cm" style="max-width: 100px;">
+                                        </form>
+                                        <form class="col-sm-2 mt-2 inline" action="#">
+                                            <label for="largura">Largura</label>
+                                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cm" style="max-width: 100px;">
+                                        </form>
+                                        <form class="col-sm-2 mt-2 inline" action="">
+                                            <label for="largura">Comprimento</label>
+                                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cm" style="max-width: 100px;">
+                                        </form>
+                                    </div>
+                                <div class="form-text px-2 mt-2"><i>Altura: 1 a 100 cm; Largura: 10 a 100 cm; Comprimento: 15 a 100 cm;
+                                   <br>Atenção: A soma das dimensões não pode ultrapassar 200 cm.</i></div>  
+                            </div>
+                            
+                            <!--Serviços Adicionais-->
+                            <div class="container mt-4">
+                                <div class="col">
+                                    <p><strong>Serviços adicionais:</strong></p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="AR" id="check1">
+                                        <label class="orm-check-label" data-bs-toggle="tooltip" data-bs-placement="right" title="Entrega exclusiva às pessoas indicadas pelo REMETENTE, podendo haver, para cada encomenda, até três indicações." for="check1">Aviso de Recebimento - <strong>R$ 6,35</strong></label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="Valor" id="check1">
+                                        <label class="orm-check-label" data-bs-toggle="tooltip" data-bs-placement="right" title="O remetente recebe a comprovação da assinatura de quem recebeu o objteto através do formulário de AR físico ou digitalizado." for="check1">Valor Declarado - <strong>(2%)</strong></label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="Mao propria" id="check1">
+                                        <label class="orm-check-label" data-bs-toggle="tooltip" data-bs-placement="right" title="Garantia de indenização no montante declarado do seu objeto em caso de eventual avaria ou extravio, proporcional ao dano do conteúdo." for="check1">Mão Própria - <strong>R$ 7,50</strong></label>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <!--Botões-->
+                            <div class="container my-5">
+                                <button type="button" class="btn btn-primary px-4" style="margin-right: 15px;">Buscar</button>
+                                <button type="button" class="btn btn-primary px-4">Limpar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="internacional" class="tab-pane fade p-2" role="tabpanel" aria-labellebdy="internacional-tab">
+                        
+                        <!--Tipo de Encomenda-->
+                        <div class="container" style="margin-top: 15px;">
+                            <p><strong>Qual o tipo de envio?</strong></p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tipo-envio-int" id="radioencomenda" value="01">
+                                    <label class="form-check-label" for="radioencomenda">
+                                        Encomenda
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tipo-envio-int" id="radiodocumento" value="02">
+                                    <label class="form-check-label" for="radiodocumento">
+                                        Documento
+                                    </label>
+                                </div>
+                            </div>
+                        
+                        <!--Endereço de Origem-->
+                        <div class="container" style="margin-top: 30px;">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="Origem" class="form-label"><strong>Endereço de Origem*</strong></label>
+                                    <input type="search" name="estado" class="form-control" id="estado" placeholder="Digite um endereço ou CEP" style="max-width: 600px;">
+                                    <div class="form-text px-2"><i>Não utilize nª de casa/apto/lote/prédio ou abreviação</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--País de Destino-->
+                        <div class="container" style="margin-top: 20px;">
+                            <div class="col">
+                                <label for="País" class="form-label"><strong>País de destino*</strong></label>
+                                <input type="search" name="cidade" class="form-control" id="cidade" placeholder="Selecione" style="max-width: 600px;">
+                            </div>
+                        </div>
+
+                        <!--Data, peso e formato-->
+                        <div class="container">
+                            <div class="row row-cols-auto">
+                                <div class="col-md-3 inline" style="margin-top: 36px;">
+                                    <p><strong>Qual a data da postagem?</strong></p>
+                                    <input class="border rounded" type="date" name="data" id="data-int" style="padding: 6.5px">
+                                </div>
+                                <div class="col-md-3 inline" style="margin-top: 30px;">
+                                    <div class="my-2">
+                                        <p><strong>Qual o peso (kg) estimado?</strong></p>
+                                        <select class="form-select" aria-label="peso" style="max-width: 200px;">
+                                            <option selected>Selecione</option>
+                                            <option value="1">Até 300 gramas</option>
+                                            <option value="2">300g a 1kg</option>
+                                            <option value="3">1kg a 2kg</option>
+                                          </select>
+                                    </div>
+                                </div>
+                                <!--Formato-->
+                                <div class="col-md-3 inline" style="margin-top: 30px;">
+                                    <div class="my-2">
+                                        <p><strong>Qual o formato do envio?</strong></p>
+                                        <select class="form-select" aria-label="Default select example" style="max-width: 200px;">
+                                            <option selected>Selecione</option>
+                                            <option value="1">Caixa</option>
+                                            <option value="2">Envelope</option>
+                                            <option value="3">Rolo/Cilindro</option>
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Tipo de Embalagem-->
+                        <div class="container" style="margin-top: 30px;">
+                            <p><strong>Qual embalagem será utilizada?</strong></p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="embalagem-int" id="embalagem-correios-int" value="04">
+                                <label class="form-check-label" for="embalagem-correios-int">
+                                    Embalagem dos Correios
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="embalagem-int" id="embalagem-propria-int" value="03">
+                                <label class="form-check-label" for="embalagem-propria-int">
+                                    Embalagem Própria
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--Embalagens-->
+                        <div class="container" id="tipo-embalagem-int">
+                            <div class="row" style="margin-top: 30px;">
+                            <div class="card-body" style="width: 18rem;">
+                                    <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Selecione</a>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="width: 18rem;">
+                                    <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Selecione</a>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="width: 18rem;">
+                                    <img src="img/logotipo.png" class="card-img-top" alt="Embalagens dos Correios">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Selecione</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <!--Dimensões-->
+                         <div class="container mt-4" id="dimensoes-int" style="display: none;">
+                            <p><strong>Indique as dimensões:</strong></p>
+                                <div class="row row-cols-auto">
+                                    <form class="col-sm-2 mt-2 inline" action="#">
+                                        <label for="altura">Altura</label>
+                                        <input type="text" name="estado" class="form-control" id="estado" placeholder="cm" style="max-width: 100px;">
+                                    </form>
+                                    <form class="col-sm-2 mt-2 inline" action="#">
+                                        <label for="largura">Largura</label>
+                                        <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cm" style="max-width: 100px;">
+                                    </form>
+                                    <form class="col-sm-2 mt-2 inline" action="">
+                                        <label for="largura">Comprimento</label>
+                                        <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cm" style="max-width: 100px;">
+                                    </form>
+                                </div>
+                            <div class="form-text px-2 mt-2"><i>Altura: 1 a 100 cm; Largura: 10 a 100 cm; Comprimento: 15 a 100 cm;
+                               <br>Atenção: A soma das dimensões não pode ultrapassar 200 cm.</i></div>  
+                        </div>
+                 
+                        <!--Botões-->
+                        <div class="container my-5">
+                            <button type="submit" class="btn btn-primary px-4" value="Buscar" style="margin-right: 15px;">Buscar</button>
+                            <button type="reset" class="btn btn-primary px-4" value="Limpar">Limpar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner">
+                <img src="img/banner.png" alt="banner">
+            </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        /**embalagens nacionais**/
+        $(document).ready(function(){
+            $("#embalagem-propria").click(function(){
+                $("#dimensoes").show();
+                $("#embalagem").hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#embalagem-correios").click(function(){
+                $("#embalagem").show();
+                $("#dimensoes").hide();
+            });
+        });
+
+        /**embalagens internacionais**/
+        $(document).ready(function(){
+            $("#embalagem-propria-int").click(function(){
+                $("#dimensoes-int").show();
+                $("#tipo-embalagem-int").hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#embalagem-correios-int").click(function(){
+                $("#tipo-embalagem-int").show();
+                $("#dimensoes-int").hide();
+            });
+        });
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+    </script>  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
+</body>
+</html>
